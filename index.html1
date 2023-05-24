@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Сайт для створення та проходження тестів</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    button[type="submit"] {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    hr {
+      margin: 20px 0;
+      border: 0;
+      border-top: 1px solid #ccc;
+    }
+
+    h2,
+    h3 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Створення та проходження тестів</h1>
+
+  <form id="testCreationForm">
+    <h2>Створення тесту</h2>
+
+    <label for="testName">Назва тесту:</label>
+    <input type="text" id="testName" required>
+
+    <label for="question">Питання:</label>
+    <input type="text" id="question" required>
+
+    <label for="option1">Варіант 1:</label>
+    <input type="text" id="option1" required>
+
+    <label for="option2">Варіант 2:</label>
+    <input type="text" id="option2" required>
+
+    <label for="option3">Варіант 3:</label>
+    <input type="text" id="option3" required>
+
+    <label for="correctOption">Правильний варіант:</label>
+    <select id="correctOption">
+      <option value="option1">Варіант 1</option>
+      <option value="option2">Варіант 2</option>
+      <option value="option3">Варіант 3</option>
+    </select>
+
+    <button type="submit">Створити тест</button>
+  </form>
+
+  <hr>
+
+  <h2>Проходження тесту</h2>
+
+  <form id="testForm">
+    <h3>Питання 1:</h3>
+    <p>Питання тут...</p>
+    <input type="radio" name="answer1" value="option1"> Варіант 1<br>
+    <input type="radio" name="answer1" value="option2"> Варіант 2<br>
+    <input type="radio" name="answer1" value="option3"> Варіант 3<br>
+
+    <h3>Питання 2:</h3>
+    <p>Питання тут...</p>
+    <input type="radio" name="answer2" value="option1"> Варіант 1<br>
+    <input type="radio" name="answer2" value="option2"> Варіант 2<br>
+    <input type="radio" name="answer2" value="option3"> Варіант 3<br>
+
+    <button type="submit">Завершити тест</button>
+  </form>
+
+  <script>
+    // Обробник події подачі форми для створення тесту
+    document.getElementById('testCreationForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      var testName = document.getElementById('testName').value;
+      var question = document.getElementById('question').value;
+      var option1 = document.getElementById('option1').value;
+      var option2 = document.getElementById('option2').value;
+      var option3 = document.getElementById('option3').value;
+      var correctOption = document.getElementById('correctOption').value;
+      // Додатковий код для збереження тесту або відправки його на сервер
+
+      // Очищення форми
+      document.getElementById('testCreationForm').reset();
+    });
+
+    // Обробник події подачі форми для проходження тесту
+    document.getElementById('testForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      var answer1 = document.querySelector('input[name="answer1"]:checked');
+      var answer2 = document.querySelector('input[name="answer2"]:checked');
+      // Додатковий код для перевірки відповідей, розрахунку результату тощо
+
+      // Очищення форми
+      document.getElementById('testForm').reset();
+    });
+  </script>
+</body>
+</html>
+
